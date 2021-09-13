@@ -13,3 +13,7 @@
 [submodule "rx-driver-package"]
 	path = rx-driver-package
 	url = https://github.com/renesas/rx-driver-package
+[submodule "guix"]
+	path = guix
+	url = https://github.com/azure-rtos/guix
+	branch = v6.1.6_rel
