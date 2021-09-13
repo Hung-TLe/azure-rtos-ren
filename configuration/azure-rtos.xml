@@ -18,6 +18,7 @@
 		<family>RX</family>
 		<series>RX600</series>
 		<group>RX65N</group>
+		<group>RX651</group>
 	</target>
 	<target>
 		<toolchain>GNURX</toolchain>
@@ -26,6 +27,7 @@
 		<family>RX</family>
 		<series>RX600</series>
 		<group>RX65N</group>
+		<group>RX651</group>
 	</target>
 	<!-- only one package entry allowed -->
 	<package>
@@ -45,6 +47,7 @@
 					<toolchain>RXC</toolchain>
 					<series>RX600</series>
 					<group>RX65N</group>
+					<group>RX651</group>
 					<section>
 						<name>B</name>
 						<name>FREEMEM</name>
@@ -69,6 +72,7 @@
 					<toolchain>RXC</toolchain>
 					<series>RX600</series>
 					<group>RX65N</group>
+					<group>RX651</group>
 					<section>
 						<name>B</name>
 						<name>FREEMEM</name>
@@ -153,8 +157,6 @@
 				</impdir>
 				<impdir>
 					<board>CloudKitRX65N</board>
-					<series>RX600</series>
-					<group>RX65N</group>
 					<folder>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/src/targets/rx65n</folder>
 					<path>src/smc_gen/r_sci_rx/src/targets/rx65n</path>
 				</impdir>
@@ -216,8 +218,6 @@
 				<sections>
 					<toolchain>RXC</toolchain>
 					<board>RSKRX65N-2MB</board>
-					<series>RX600</series>
-					<group>RX65N</group>
 					<section>
 						<name>B_ETHERNET_BUFFERS</name>
 						<name>B_TX_DESC</name>
@@ -230,8 +230,6 @@
 				<sections>
 					<toolchain>RXC</toolchain>
 					<board>CloudKitRX65N</board>
-					<series>RX600</series>
-					<group>RX65N</group>
 					<section>
 						<name>B</name>
 						<name>FREEMEM</name>
@@ -320,8 +318,6 @@
 				<sections>
 					<toolchain>RXC</toolchain>
 					<board>RSKRX65N-2MB</board>
-					<series>RX600</series>
-					<group>RX65N</group>
 					<section>
 						<name>B_ETHERNET_BUFFERS</name>
 						<name>B_TX_DESC</name>
@@ -425,8 +421,6 @@
 				</impdir>
 				<impdir>
 					<board>CloudKitRX65N</board>
-					<series>RX600</series>
-					<group>RX65N</group>
 					<folder>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/src/targets/rx65n</folder>
 					<path>src/smc_gen/r_sci_rx/src/targets/rx65n</path>
 				</impdir>
@@ -487,8 +481,6 @@
 				<sections>
 					<toolchain>RXC</toolchain>
 					<board>RSKRX65N-2MB</board>
-					<series>RX600</series>
-					<group>RX65N</group>
 					<section>
 						<name>B_ETHERNET_BUFFERS</name>
 						<name>B_TX_DESC</name>
@@ -501,8 +493,6 @@
 				<sections>
 					<toolchain>RXC</toolchain>
 					<board>CloudKitRX65N</board>
-					<series>RX600</series>
-					<group>RX65N</group>
 					<section>
 						<name>B</name>
 						<name>FREEMEM</name>
@@ -606,8 +596,6 @@
 				</impdir>
 				<impdir>
 					<board>CloudKitRX65N</board>
-					<series>RX600</series>
-					<group>RX65N</group>
 					<folder>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/src/targets/rx65n</folder>
 					<path>src/smc_gen/r_sci_rx/src/targets/rx65n</path>
 				</impdir>
@@ -668,8 +656,6 @@
 				<sections>
 					<toolchain>RXC</toolchain>
 					<board>RSKRX65N-2MB</board>
-					<series>RX600</series>
-					<group>RX65N</group>
 					<section>
 						<name>B_ETHERNET_BUFFERS</name>
 						<name>B_TX_DESC</name>
@@ -682,8 +668,6 @@
 				<sections>
 					<toolchain>RXC</toolchain>
 					<board>CloudKitRX65N</board>
-					<series>RX600</series>
-					<group>RX65N</group>
 					<section>
 						<name>B</name>
 						<name>FREEMEM</name>
@@ -787,8 +771,6 @@
 				</impdir>
 				<impdir>
 					<board>CloudKitRX65N</board>
-					<series>RX600</series>
-					<group>RX65N</group>
 					<folder>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/src/targets/rx65n</folder>
 					<path>src/smc_gen/r_sci_rx/src/targets/rx65n</path>
 				</impdir>
@@ -849,8 +831,6 @@
 				<sections>
 					<toolchain>RXC</toolchain>
 					<board>RSKRX65N-2MB</board>
-					<series>RX600</series>
-					<group>RX65N</group>
 					<section>
 						<name>B_ETHERNET_BUFFERS</name>
 						<name>B_TX_DESC</name>
@@ -863,8 +843,6 @@
 				<sections>
 					<toolchain>RXC</toolchain>
 					<board>CloudKitRX65N</board>
-					<series>RX600</series>
-					<group>RX65N</group>
 					<section>
 						<name>B</name>
 						<name>FREEMEM</name>
