@@ -14,6 +14,7 @@
 	<target>
 		<toolchain>RXC</toolchain>
 		<board>RSKRX65N-2MB</board>
+		<board>CloudKitRX65N</board>
 		<family>RX</family>
 		<series>RX600</series>
 		<group>RX65N</group>
@@ -21,6 +22,7 @@
 	<target>
 		<toolchain>GNURX</toolchain>
 		<board>RSKRX65N-2MB</board>
+		<board>CloudKitRX65N</board>
 		<family>RX</family>
 		<series>RX600</series>
 		<group>RX65N</group>
@@ -88,23 +90,42 @@
 			</app>
 			<app id="application" value="ping" name="NetX Duo Ping sample project" description="This sample project illustrates the setup and use of NetX Duo IPv4/IPv6 TCP/IP stack via ping from another node on the local network. By default, this demonstration requests an IP Address via DHCP, and displays the status and assigned IP Address via terminal I/O window. Note: default baudrate setting is 115200">
 				<board>RSKRX65N-2MB</board>
+				<board>CloudKitRX65N</board>
 				<!-- Copy resources to project -->
 				<impdir>
 					<folder>configuration/samples/ping/common</folder>
 					<path>src</path>
 				</impdir>
 				<impdir>
+					<board>RSKRX65N-2MB</board>
 					<folder>configuration/samples/ping/rsk-rx65n-2mb/src/smc_gen</folder>
 					<path>src/smc_gen</path>
 				</impdir>
 				<impdir>
+					<board>CloudKitRX65N</board>
+					<folder>configuration/samples/ping/cloudkit-rx65n/src/smc_gen</folder>
+					<path>src/smc_gen</path>
+				</impdir>
+				<impdir>
+					<board>RSKRX65N-2MB</board>
 					<file>configuration/samples/ping/rsk-rx65n-2mb/src/demo_printf.c</file>
 					<file>configuration/samples/ping/rsk-rx65n-2mb/src/hardware_setup.c</file>
 					<file>configuration/samples/ping/rsk-rx65n-2mb/src/nx_driver_rx_fit.c</file>
 					<file>configuration/samples/ping/rsk-rx65n-2mb/src/nx_driver_rx_fit.h</file>
+					<file>configuration/samples/ping/rsk-rx65n-2mb/src/sample_netx_duo_ping.c</file>
 					<path>src</path>
 				</impdir>
 				<impdir>
+					<board>CloudKitRX65N</board>
+					<file>configuration/samples/ping/cloudkit-rx65n/src/demo_printf.c</file>
+					<file>configuration/samples/ping/cloudkit-rx65n/src/hardware_setup.c</file>
+					<file>configuration/samples/ping/cloudkit-rx65n/src/nx_wifi.c</file>
+					<file>configuration/samples/ping/cloudkit-rx65n/src/sample_netx_duo_ping.c</file>
+					<file>configuration/samples/ping/cloudkit-rx65n/src/nx_wifi.h</file>
+					<path>src</path>
+				</impdir>
+				<impdir>
+					<board>RSKRX65N-2MB</board>
 					<toolchain>GNURX</toolchain>
 					<file>configuration/samples/ping/rsk-rx65n-2mb/src/linker_script.ld</file>
 					<path>src</path>
@@ -115,33 +136,103 @@
 					<path>src/smc_gen/r_cmt_rx</path>
 				</impdir>
 				<impdir>
+					<board>RSKRX65N-2MB</board>
 					<folder>rx-driver-package/source/r_ether_rx/r_ether_rx_vx.xx/r_ether_rx</folder>
 					<path>src/smc_gen/r_ether_rx</path>
+				</impdir>
+				<!-- copy r_sci_rx driver codes for RX65N -->
+				<impdir>
+					<board>CloudKitRX65N</board>
+					<folder>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/doc</folder>
+					<path>src/smc_gen/r_sci_rx/doc</path>
+				</impdir>	
+				<impdir>
+					<board>CloudKitRX65N</board>
+					<folder>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/ref</folder>
+					<path>src/smc_gen/r_sci_rx/ref</path>
+				</impdir>
+				<impdir>
+					<board>CloudKitRX65N</board>
+					<series>RX600</series>
+					<group>RX65N</group>
+					<folder>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/src/targets/rx65n</folder>
+					<path>src/smc_gen/r_sci_rx/src/targets/rx65n</path>
+				</impdir>
+				<impdir>
+					<board>CloudKitRX65N</board>
+					<file>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/src/r_sci_rx_dmaca.c</file>
+					<file>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/src/r_sci_rx_dmaca.h</file>
+					<file>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/src/r_sci_rx_dtc.c</file>
+					<file>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/src/r_sci_rx_dtc.h</file>
+					<file>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/src/r_sci_rx_platform.h</file>
+					<file>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/src/r_sci_rx_private.h</file>
+					<file>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/src/r_sci_rx.c</file>
+					<path>src/smc_gen/r_sci_rx/src</path>
+				</impdir>
+				<impdir>
+					<board>CloudKitRX65N</board>
+					<file>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/r_sci_rx_if.h</file>
+					<file>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/readme.txt</file>
+					<path>src/smc_gen/r_sci_rx</path>
+				</impdir>
+				<impdir>
+					<board>CloudKitRX65N</board>
+					<folder>rx-driver-package/source/r_byteq/r_byteq_vx.xx/r_byteq</folder>
+					<path>src/smc_gen/r_byteq</path>
+				</impdir>
+				<!-- TODO: will use wifi driver from rx-driver-package -->
+				<impdir>
+					<board>CloudKitRX65N</board>
+					<folder>configuration/patch_files/rx-driver-package/source/r_wifi_sx_ulpgn</folder>
+					<path>src/r_wifi_sx_ulpgn</path>
 				</impdir>
 				<!-- include -->
 				<incdir>
 					<path>src</path>
-				</incdir>
-				<incdir>
 					<path>src/smc_gen/r_cmt_rx</path>
 				</incdir>
 				<incdir>
+					<board>RSKRX65N-2MB</board>
 					<path>src/smc_gen/r_ether_rx</path>
+				</incdir>
+				<incdir>
+					<board>CloudKitRX65N</board>
+					<path>src/smc_gen/r_sci_rx</path>
+					<path>src/smc_gen/r_byteq</path>
+					<!-- TODO: to update -->
+					<path>src/r_wifi_sx_ulpgn</path>
 				</incdir>
 				<!-- scfg template -->
 				<scfgtemplate>
+					<board>RSKRX65N-2MB</board>
 					<path>configuration/samples/ping/rsk-rx65n-2mb/RSKRX65N-2MB-ping_scfg.ftl</path>
 				</scfgtemplate>
+				<scfgtemplate>
+					<board>CloudKitRX65N</board>
+					<path>configuration/samples/ping/cloudkit-rx65n/CloudKit-RX65N-ping_scfg.ftl</path>
+				</scfgtemplate>	
 				<!-- compiler setting -->
 				<!-- set RXC linker section -->
 				<sections>
 					<toolchain>RXC</toolchain>
+					<board>RSKRX65N-2MB</board>
 					<series>RX600</series>
 					<group>RX65N</group>
 					<section>
 						<name>B_ETHERNET_BUFFERS</name>
 						<name>B_TX_DESC</name>
 						<name>B_RX_DESC</name>
+						<name>B</name>
+						<name>FREEMEM</name>
+						<address>0x00004000</address>
+					</section>
+				</sections>
+				<sections>
+					<toolchain>RXC</toolchain>
+					<board>CloudKitRX65N</board>
+					<series>RX600</series>
+					<group>RX65N</group>
+					<section>
 						<name>B</name>
 						<name>FREEMEM</name>
 						<address>0x00004000</address>
@@ -173,6 +264,7 @@
 				</option>
 				<!-- macro definition -->
 				<macrodefinition>
+					<board>RSKRX65N-2MB</board>
 					<compiler>NX_ENABLE_DHCP</compiler>
 				</macrodefinition>
 			</app>
@@ -270,23 +362,42 @@
 			</app>
 			<app id="application" value="iot-sdk" name="IoT Embedded SDK sample project" description="This sample project illustrates the connection to Azure IoT Hub using Azure IoT Middleware for Azure RTOS. Note: default baudrate setting is 115200">
 				<board>RSKRX65N-2MB</board>
+				<board>CloudKitRX65N</board>
 				<!-- Copy resources to project -->
 				<impdir>
 					<folder>configuration/samples/iot_sdk/common</folder>
 					<path>src</path>
 				</impdir>
 				<impdir>
+					<board>RSKRX65N-2MB</board>
 					<folder>configuration/samples/iot_sdk/rsk-rx65n-2mb/src/smc_gen</folder>
 					<path>src/smc_gen</path>
 				</impdir>
 				<impdir>
+					<board>CloudKitRX65N</board>
+					<folder>configuration/samples/iot_sdk/cloudkit-rx65n/src/smc_gen</folder>
+					<path>src/smc_gen</path>
+				</impdir>
+				<impdir>
+					<board>RSKRX65N-2MB</board>
 					<file>configuration/samples/iot_sdk/rsk-rx65n-2mb/src/demo_printf.c</file>
 					<file>configuration/samples/iot_sdk/rsk-rx65n-2mb/src/hardware_setup.c</file>
 					<file>configuration/samples/iot_sdk/rsk-rx65n-2mb/src/nx_driver_rx_fit.c</file>
 					<file>configuration/samples/iot_sdk/rsk-rx65n-2mb/src/nx_driver_rx_fit.h</file>
+					<file>configuration/samples/iot_sdk/rsk-rx65n-2mb/src/main.c</file>
 					<path>src</path>
 				</impdir>
 				<impdir>
+					<board>CloudKitRX65N</board>
+					<file>configuration/samples/iot_sdk/cloudkit-rx65n/src/demo_printf.c</file>
+					<file>configuration/samples/iot_sdk/cloudkit-rx65n/src/hardware_setup.c</file>
+					<file>configuration/samples/iot_sdk/cloudkit-rx65n/src/nx_wifi.c</file>
+					<file>configuration/samples/iot_sdk/cloudkit-rx65n/src/main.c</file>
+					<file>configuration/samples/iot_sdk/cloudkit-rx65n/src/nx_wifi.h</file>
+					<path>src</path>
+				</impdir>
+				<impdir>
+					<board>RSKRX65N-2MB</board>
 					<toolchain>GNURX</toolchain>
 					<file>configuration/samples/iot_sdk/rsk-rx65n-2mb/src/linker_script.ld</file>
 					<path>src</path>
@@ -297,23 +408,80 @@
 					<path>src/smc_gen/r_cmt_rx</path>
 				</impdir>
 				<impdir>
+					<board>RSKRX65N-2MB</board>
 					<folder>rx-driver-package/source/r_ether_rx/r_ether_rx_vx.xx/r_ether_rx</folder>
 					<path>src/smc_gen/r_ether_rx</path>
+				</impdir>
+				<!-- copy r_sci_rx driver codes for RX65N -->
+				<impdir>
+					<board>CloudKitRX65N</board>
+					<folder>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/doc</folder>
+					<path>src/smc_gen/r_sci_rx/doc</path>
+				</impdir>
+				<impdir>
+					<board>CloudKitRX65N</board>
+					<folder>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/ref</folder>
+					<path>src/smc_gen/r_sci_rx/ref</path>
+				</impdir>
+				<impdir>
+					<board>CloudKitRX65N</board>
+					<series>RX600</series>
+					<group>RX65N</group>
+					<folder>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/src/targets/rx65n</folder>
+					<path>src/smc_gen/r_sci_rx/src/targets/rx65n</path>
+				</impdir>
+				<impdir>
+					<board>CloudKitRX65N</board>
+					<file>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/src/r_sci_rx_dmaca.c</file>
+					<file>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/src/r_sci_rx_dmaca.h</file>
+					<file>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/src/r_sci_rx_dtc.c</file>
+					<file>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/src/r_sci_rx_dtc.h</file>
+					<file>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/src/r_sci_rx_platform.h</file>
+					<file>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/src/r_sci_rx_private.h</file>
+					<file>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/src/r_sci_rx.c</file>
+					<path>src/smc_gen/r_sci_rx/src</path>
+				</impdir>
+				<impdir>
+					<board>CloudKitRX65N</board>
+					<file>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/r_sci_rx_if.h</file>
+					<file>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/readme.txt</file>
+					<path>src/smc_gen/r_sci_rx</path>
+				</impdir>
+				<impdir>
+					<board>CloudKitRX65N</board>
+					<folder>rx-driver-package/source/r_byteq/r_byteq_vx.xx/r_byteq</folder>
+					<path>src/smc_gen/r_byteq</path>
+				</impdir>
+				<!-- TODO: will be implemented later -->
+				<impdir>
+					<board>CloudKitRX65N</board>
+					<folder>configuration/patch_files/rx-driver-package/source/r_wifi_sx_ulpgn</folder>
+					<path>src/r_wifi_sx_ulpgn</path>
 				</impdir>
 				<!-- include -->
 				<incdir>
 					<path>src</path>
-				</incdir>
-				<incdir>
 					<path>src/smc_gen/r_cmt_rx</path>
 				</incdir>
 				<incdir>
+					<board>RSKRX65N-2MB</board>
 					<path>src/smc_gen/r_ether_rx</path>
+				</incdir>
+				<incdir>
+					<board>CloudKitRX65N</board>
+					<path>src/smc_gen/r_sci_rx</path>
+					<path>src/smc_gen/r_byteq</path>
+					<path>src/r_wifi_sx_ulpgn</path>
 				</incdir>
 				<!-- scfg template -->
 				<scfgtemplate>
+					<board>RSKRX65N-2MB</board>
 					<path>configuration/samples/iot_sdk/rsk-rx65n-2mb/RSKRX65N-2MB-iot-sdk_scfg.ftl</path>
 				</scfgtemplate>
+				<scfgtemplate>
+					<board>CloudKitRX65N</board>
+					<path>configuration/samples/iot_sdk/cloudkit-rx65n/CloudKit-RX65N-iot-sdk_scfg.ftl</path>
+				</scfgtemplate>	
 				<!-- compiler setting -->
 				<!-- set RXC linker section -->
 				<sections>
@@ -325,6 +493,17 @@
 						<name>B_ETHERNET_BUFFERS</name>
 						<name>B_TX_DESC</name>
 						<name>B_RX_DESC</name>
+						<name>B</name>
+						<name>FREEMEM</name>
+						<address>0x00004000</address>
+					</section>
+				</sections>
+				<sections>
+					<toolchain>RXC</toolchain>
+					<board>CloudKitRX65N</board>
+					<series>RX600</series>
+					<group>RX65N</group>
+					<section>
 						<name>B</name>
 						<name>FREEMEM</name>
 						<address>0x00004000</address>
@@ -356,28 +535,50 @@
 				</option>
 				<!-- macro definition -->
 				<macrodefinition>
+					<board>RSKRX65N-2MB</board>
 					<compiler>NX_ENABLE_DHCP</compiler>
 				</macrodefinition>
 			</app>
 			<app id="application" value="iot-sdk-pnp" name="IoT Embedded SDK PnP sample project" description="This sample project illustrates the connection to Azure IoT Hub using Azure IoT Middleware for Azure RTOS via IoT Plug and Play. Note: default baudrate setting is 115200">
 				<board>RSKRX65N-2MB</board>
+				<board>CloudKitRX65N</board>
 				<!-- Copy resources to project -->
 				<impdir>
 					<folder>configuration/samples/iot_sdk_pnp/common</folder>
 					<path>src</path>
 				</impdir>
 				<impdir>
+					<board>RSKRX65N-2MB</board>
 					<folder>configuration/samples/iot_sdk_pnp/rsk-rx65n-2mb/src/smc_gen</folder>
 					<path>src/smc_gen</path>
 				</impdir>
 				<impdir>
+					<board>CloudKitRX65N</board>
+					<folder>configuration/samples/iot_sdk_pnp/cloudkit-rx65n/src/smc_gen</folder>
+					<path>src/smc_gen</path>
+				</impdir>
+				<impdir>
+					<board>RSKRX65N-2MB</board>
 					<file>configuration/samples/iot_sdk_pnp/rsk-rx65n-2mb/src/demo_printf.c</file>
 					<file>configuration/samples/iot_sdk_pnp/rsk-rx65n-2mb/src/hardware_setup.c</file>
 					<file>configuration/samples/iot_sdk_pnp/rsk-rx65n-2mb/src/nx_driver_rx_fit.c</file>
 					<file>configuration/samples/iot_sdk_pnp/rsk-rx65n-2mb/src/nx_driver_rx_fit.h</file>
+					<file>configuration/samples/iot_sdk_pnp/rsk-rx65n-2mb/src/sample_azure_iot_embedded_sdk_pnp.c</file>
+					<file>configuration/samples/iot_sdk_pnp/rsk-rx65n-2mb/src/main.c</file>
 					<path>src</path>
 				</impdir>
 				<impdir>
+					<board>CloudKitRX65N</board>
+					<file>configuration/samples/iot_sdk_pnp/cloudkit-rx65n/src/demo_printf.c</file>
+					<file>configuration/samples/iot_sdk_pnp/cloudkit-rx65n/src/hardware_setup.c</file>
+					<file>configuration/samples/iot_sdk_pnp/cloudkit-rx65n/src/nx_wifi.c</file>
+					<file>configuration/samples/iot_sdk_pnp/cloudkit-rx65n/src/sample_azure_iot_embedded_sdk_pnp.c</file>
+					<file>configuration/samples/iot_sdk_pnp/cloudkit-rx65n/src/main.c</file>
+					<file>configuration/samples/iot_sdk_pnp/cloudkit-rx65n/src/nx_wifi.h</file>
+					<path>src</path>
+				</impdir>
+				<impdir>
+					<board>RSKRX65N-2MB</board>
 					<toolchain>GNURX</toolchain>
 					<file>configuration/samples/iot_sdk_pnp/rsk-rx65n-2mb/src/linker_script.ld</file>
 					<path>src</path>
@@ -388,22 +589,79 @@
 					<path>src/smc_gen/r_cmt_rx</path>
 				</impdir>
 				<impdir>
+					<board>RSKRX65N-2MB</board>
 					<folder>rx-driver-package/source/r_ether_rx/r_ether_rx_vx.xx/r_ether_rx</folder>
 					<path>src/smc_gen/r_ether_rx</path>
+				</impdir>
+				<!-- copy r_sci_rx driver codes for RX65N -->
+				<impdir>
+					<board>CloudKitRX65N</board>
+					<folder>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/doc</folder>
+					<path>src/smc_gen/r_sci_rx/doc</path>
+				</impdir>	
+				<impdir>
+					<board>CloudKitRX65N</board>
+					<folder>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/ref</folder>
+					<path>src/smc_gen/r_sci_rx/ref</path>
+				</impdir>
+				<impdir>
+					<board>CloudKitRX65N</board>
+					<series>RX600</series>
+					<group>RX65N</group>
+					<folder>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/src/targets/rx65n</folder>
+					<path>src/smc_gen/r_sci_rx/src/targets/rx65n</path>
+				</impdir>
+				<impdir>
+					<board>CloudKitRX65N</board>
+					<file>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/src/r_sci_rx_dmaca.c</file>
+					<file>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/src/r_sci_rx_dmaca.h</file>
+					<file>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/src/r_sci_rx_dtc.c</file>
+					<file>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/src/r_sci_rx_dtc.h</file>
+					<file>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/src/r_sci_rx_platform.h</file>
+					<file>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/src/r_sci_rx_private.h</file>
+					<file>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/src/r_sci_rx.c</file>
+					<path>src/smc_gen/r_sci_rx/src</path>
+				</impdir>
+				<impdir>
+					<board>CloudKitRX65N</board>
+					<file>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/r_sci_rx_if.h</file>
+					<file>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/readme.txt</file>
+					<path>src/smc_gen/r_sci_rx</path>
+				</impdir>
+				<impdir>
+					<board>CloudKitRX65N</board>
+					<folder>rx-driver-package/source/r_byteq/r_byteq_vx.xx/r_byteq</folder>
+					<path>src/smc_gen/r_byteq</path>
+				</impdir>
+				<!-- TODO: will be implemented later -->
+				<impdir>
+					<board>CloudKitRX65N</board>
+					<folder>configuration/patch_files/rx-driver-package/source/r_wifi_sx_ulpgn</folder>
+					<path>src/r_wifi_sx_ulpgn</path>
 				</impdir>
 				<!-- include -->
 				<incdir>
 					<path>src</path>
-				</incdir>
-				<incdir>
 					<path>src/smc_gen/r_cmt_rx</path>
 				</incdir>
 				<incdir>
+					<board>RSKRX65N-2MB</board>
 					<path>src/smc_gen/r_ether_rx</path>
+				</incdir>
+				<incdir>
+					<board>CloudKitRX65N</board>
+					<path>src/smc_gen/r_sci_rx</path>
+					<path>src/smc_gen/r_byteq</path>
+					<path>src/r_wifi_sx_ulpgn</path>
 				</incdir>
 				<!-- scfg template -->
 				<scfgtemplate>
+					<board>RSKRX65N-2MB</board>
 					<path>configuration/samples/iot_sdk_pnp/rsk-rx65n-2mb/RSKRX65N-2MB-iot-sdk-pnp_scfg.ftl</path>
+				</scfgtemplate>
+				<scfgtemplate>
+					<board>CloudKitRX65N</board>
+					<path>configuration/samples/iot_sdk_pnp/cloudkit-rx65n/CloudKit-RX65N-iot-sdk-pnp_scfg.ftl</path>
 				</scfgtemplate>
 				<!-- compiler setting -->
 				<!-- set RXC linker section -->
@@ -416,6 +674,17 @@
 						<name>B_ETHERNET_BUFFERS</name>
 						<name>B_TX_DESC</name>
 						<name>B_RX_DESC</name>
+						<name>B</name>
+						<name>FREEMEM</name>
+						<address>0x00004000</address>
+					</section>
+				</sections>
+				<sections>
+					<toolchain>RXC</toolchain>
+					<board>CloudKitRX65N</board>
+					<series>RX600</series>
+					<group>RX65N</group>
+					<section>
 						<name>B</name>
 						<name>FREEMEM</name>
 						<address>0x00004000</address>
@@ -447,28 +716,50 @@
 				</option>
 				<!-- macro definition -->
 				<macrodefinition>
+					<board>RSKRX65N-2MB</board>
 					<compiler>NX_ENABLE_DHCP</compiler>
 				</macrodefinition>
 			</app>
 			<app id="application" value="temperature-pnp" name="PnP Temperature Control sample project" description="This sample project with IoT Plug and Play using multiple components. Note: default baudrate setting is 115200">
 				<board>RSKRX65N-2MB</board>
+				<board>CloudKitRX65N</board>
 				<!-- Copy resources to project -->
 				<impdir>
 					<folder>configuration/samples/temperature_pnp/common</folder>
 					<path>src</path>
 				</impdir>
 				<impdir>
+					<board>RSKRX65N-2MB</board>
 					<folder>configuration/samples/temperature_pnp/rsk-rx65n-2mb/src/smc_gen</folder>
 					<path>src/smc_gen</path>
 				</impdir>
 				<impdir>
+					<board>CloudKitRX65N</board>
+					<folder>configuration/samples/temperature_pnp/cloudkit-rx65n/src/smc_gen</folder>
+					<path>src/smc_gen</path>
+				</impdir>
+				<impdir>
+					<board>RSKRX65N-2MB</board>
 					<file>configuration/samples/temperature_pnp/rsk-rx65n-2mb/src/demo_printf.c</file>
 					<file>configuration/samples/temperature_pnp/rsk-rx65n-2mb/src/hardware_setup.c</file>
 					<file>configuration/samples/temperature_pnp/rsk-rx65n-2mb/src/nx_driver_rx_fit.c</file>
 					<file>configuration/samples/temperature_pnp/rsk-rx65n-2mb/src/nx_driver_rx_fit.h</file>
+					<file>configuration/samples/temperature_pnp/rsk-rx65n-2mb/src/sample_pnp_temperature_controller.c</file>
+					<file>configuration/samples/temperature_pnp/rsk-rx65n-2mb/src/main.c</file>
 					<path>src</path>
 				</impdir>
 				<impdir>
+					<board>CloudKitRX65N</board>
+					<file>configuration/samples/temperature_pnp/cloudkit-rx65n/src/demo_printf.c</file>
+					<file>configuration/samples/temperature_pnp/cloudkit-rx65n/src/hardware_setup.c</file>
+					<file>configuration/samples/temperature_pnp/cloudkit-rx65n/src/nx_wifi.c</file>
+					<file>configuration/samples/temperature_pnp/cloudkit-rx65n/src/sample_pnp_temperature_controller.c</file>
+					<file>configuration/samples/temperature_pnp/cloudkit-rx65n/src/main.c</file>
+					<file>configuration/samples/temperature_pnp/cloudkit-rx65n/src/nx_wifi.h</file>
+					<path>src</path>
+				</impdir>
+				<impdir>
+					<board>RSKRX65N-2MB</board>
 					<toolchain>GNURX</toolchain>
 					<file>configuration/samples/temperature_pnp/rsk-rx65n-2mb/src/linker_script.ld</file>
 					<path>src</path>
@@ -479,22 +770,79 @@
 					<path>src/smc_gen/r_cmt_rx</path>
 				</impdir>
 				<impdir>
+					<board>RSKRX65N-2MB</board>
 					<folder>rx-driver-package/source/r_ether_rx/r_ether_rx_vx.xx/r_ether_rx</folder>
 					<path>src/smc_gen/r_ether_rx</path>
+				</impdir>
+				<!-- copy r_sci_rx driver codes for RX65N -->
+				<impdir>
+					<board>CloudKitRX65N</board>
+					<folder>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/doc</folder>
+					<path>src/smc_gen/r_sci_rx/doc</path>
+				</impdir>
+				<impdir>
+					<board>CloudKitRX65N</board>
+					<folder>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/ref</folder>
+					<path>src/smc_gen/r_sci_rx/ref</path>
+				</impdir>
+				<impdir>
+					<board>CloudKitRX65N</board>
+					<series>RX600</series>
+					<group>RX65N</group>
+					<folder>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/src/targets/rx65n</folder>
+					<path>src/smc_gen/r_sci_rx/src/targets/rx65n</path>
+				</impdir>
+				<impdir>
+					<board>CloudKitRX65N</board>
+					<file>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/src/r_sci_rx_dmaca.c</file>
+					<file>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/src/r_sci_rx_dmaca.h</file>
+					<file>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/src/r_sci_rx_dtc.c</file>
+					<file>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/src/r_sci_rx_dtc.h</file>
+					<file>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/src/r_sci_rx_platform.h</file>
+					<file>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/src/r_sci_rx_private.h</file>
+					<file>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/src/r_sci_rx.c</file>
+					<path>src/smc_gen/r_sci_rx/src</path>
+				</impdir>
+				<impdir>
+					<board>CloudKitRX65N</board>
+					<file>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/r_sci_rx_if.h</file>
+					<file>rx-driver-package/source/r_sci_rx/r_sci_rx_vx.xx/r_sci_rx/readme.txt</file>
+					<path>src/smc_gen/r_sci_rx</path>
+				</impdir>
+				<impdir>
+					<board>CloudKitRX65N</board>
+					<folder>rx-driver-package/source/r_byteq/r_byteq_vx.xx/r_byteq</folder>
+					<path>src/smc_gen/r_byteq</path>
+				</impdir>
+				<!-- TODO: will be implemented later -->
+				<impdir>
+					<board>CloudKitRX65N</board>
+					<folder>configuration/patch_files/rx-driver-package/source/r_wifi_sx_ulpgn</folder>
+					<path>src/r_wifi_sx_ulpgn</path>
 				</impdir>
 				<!-- include -->
 				<incdir>
 					<path>src</path>
-				</incdir>
-				<incdir>
 					<path>src/smc_gen/r_cmt_rx</path>
 				</incdir>
 				<incdir>
+					<board>RSKRX65N-2MB</board>
 					<path>src/smc_gen/r_ether_rx</path>
+				</incdir>
+				<incdir>
+					<board>CloudKitRX65N</board>
+					<path>src/smc_gen/r_sci_rx</path>
+					<path>src/smc_gen/r_byteq</path>
+					<path>src/r_wifi_sx_ulpgn</path>
 				</incdir>
 				<!-- scfg template -->
 				<scfgtemplate>
+					<board>RSKRX65N-2MB</board>
 					<path>configuration/samples/temperature_pnp/rsk-rx65n-2mb/RSKRX65N-2MB-temperature-pnp_scfg.ftl</path>
+				</scfgtemplate>
+				<scfgtemplate>
+					<board>CloudKitRX65N</board>
+					<path>configuration/samples/temperature_pnp/cloudkit-rx65n/CloudKit-RX65N-temperature-pnp_scfg.ftl</path>
 				</scfgtemplate>
 				<!-- compiler setting -->
 				<!-- set RXC linker section -->
@@ -507,6 +855,17 @@
 						<name>B_ETHERNET_BUFFERS</name>
 						<name>B_TX_DESC</name>
 						<name>B_RX_DESC</name>
+						<name>B</name>
+						<name>FREEMEM</name>
+						<address>0x00004000</address>
+					</section>
+				</sections>
+				<sections>
+					<toolchain>RXC</toolchain>
+					<board>CloudKitRX65N</board>
+					<series>RX600</series>
+					<group>RX65N</group>
+					<section>
 						<name>B</name>
 						<name>FREEMEM</name>
 						<address>0x00004000</address>
@@ -538,6 +897,7 @@
 				</option>
 				<!-- macro definition -->
 				<macrodefinition>
+					<board>RSKRX65N-2MB</board>
 					<compiler>NX_ENABLE_DHCP</compiler>
 				</macrodefinition>
 			</app>
