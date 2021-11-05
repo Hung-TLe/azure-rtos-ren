@@ -137,18 +137,6 @@ SECTIONS
 	{
 		KEEP(*(.ofs8))
 	} > OFS
-	.bss :
-	{
-		_bss = .;
-		*(.bss)
-		*(.bss.**)
-		*(COMMON)
-		*(B)
-		*(B_1)
-		*(B_2)
-		_ebss = .;
-		_end = .;
-	} >RAM2
 B_ETHERNET_BUFFERS_1 0x10000 (NOLOAD) : AT(0x10000)
 	{
 		*(B_ETHERNET_BUFFERS_1)
@@ -188,4 +176,16 @@ B_TX_DESC_1 (NOLOAD) :
 	{
 		"_ustack" = .;
 	} >RAM
+		.bss :
+	{
+	_bss = .;
+		*(.bss)
+		*(.bss.**)
+		*(COMMON)
+		*(B)
+		*(B_1)
+		*(B_2)
+		_ebss = .;
+		_end = .;
+	} >RAM2
 }
